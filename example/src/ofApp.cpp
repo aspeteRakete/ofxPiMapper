@@ -27,7 +27,7 @@ void ofApp::setup()
         rectSpeeds.push_back((1.0f + ofRandom(5)));
     }
     
-    video.loadMovie("sources/movies/lala01.mp4");
+    video.loadMovie("sources/movies/stripe.mp4");
     video.play();
 }
 

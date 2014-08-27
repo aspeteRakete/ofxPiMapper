@@ -90,7 +90,7 @@ void ofxQuadSurface::draw() {
 
   // define texture and vertex coords
   texture->bind();
-  glBegin(GL_QUADS);
+  /*glBegin(GL_QUADS);
   {
     float q = (d0 + d2) / (d2);
     glTexCoord4f(t0.x, t0.y, 0, q);
@@ -108,7 +108,19 @@ void ofxQuadSurface::draw() {
     glTexCoord4f(t3.x, t3.y * q, 0, q);
     glVertex3f(p3.x, p3.y, p3.z);
   }
-  glEnd();
+  glEnd();*/
+    GLfloat glverts[8];
+    glVertexPointer(3, GL_FLOAT, 0, glverts);
+    glEnableClientState(GL_VERTEX_ARRAY);
+    
+    //fill in vertex positions with your data
+    for (int i = 0; i < 3; i++) {
+        glverts[i*3]   = mesh.getVertex(i).x;
+        glverts[i*3+1] = mesh.getVertex(i).y;
+        glverts[i*3+2] = 0;
+    }
+    
+    glDrawArrays(GL_TRIANGLES, 0, 3);
 
   texture->unbind();
   ofPopMatrix();
