@@ -26,6 +26,9 @@ void ofApp::setup()
         rects.push_back(ofRectangle(0, ofRandom(fbo->getHeight()), fbo->getWidth(), ofRandom(20)));
         rectSpeeds.push_back((1.0f + ofRandom(5)));
     }
+    
+    video.loadMovie("sources/movies/lala01.mp4");
+    video.play();
 }
 
 void ofApp::update()
@@ -37,6 +40,8 @@ void ofApp::update()
             rects[i].y = -rects[i].getHeight();
         }
     }
+    video.update();
+    surfaceManager.getSurface(0)->setTexture(&video.getTextureReference());
 
     // Fill FBO
     fbo->begin();

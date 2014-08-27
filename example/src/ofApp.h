@@ -26,6 +26,7 @@ public:
     ofFbo* fbo;    
     vector<ofRectangle> rects;
     vector<float> rectSpeeds;
+    ofVideoPlayer video;
 };
 
 #endif
