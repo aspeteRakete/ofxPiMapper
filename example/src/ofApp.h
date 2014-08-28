@@ -28,7 +28,7 @@ public:
     ofFbo* fbo;
     vector<ofRectangle> rects;
     vector<float> rectSpeeds;
-#ifdef NANANANANANANANAN_BATMAN
+#ifdef TARGET_OPENGLES
     ofxOMXPlayer video;
 #else
     ofVideoPlayer video;

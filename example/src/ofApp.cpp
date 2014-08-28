@@ -28,7 +28,9 @@ void ofApp::setup()
     }
     
     video.loadMovie("sources/movies/lala01.mp4");
+#ifndef TARGET_OPENGLES
     video.play();
+#endif
 }
 
 void ofApp::update()
@@ -40,7 +42,9 @@ void ofApp::update()
             rects[i].y = -rects[i].getHeight();
         }
     }
+#ifndef TARGET_OPENGLES
     video.update();
+#endif
     surfaceManager.getSurface(0)->setTexture(&video.getTextureReference());
 
     // Fill FBO
