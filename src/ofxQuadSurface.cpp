@@ -74,10 +74,6 @@ void ofxQuadSurface::draw()
     ofVec3f t2 = mesh.getTexCoord(2);
     ofVec3f t3 = mesh.getTexCoord(3);
 
-    for (int i = 0; i < 4; i++) {
-        ofDrawBitmapString(ofToString(i), mesh.getVertex(i));
-    }
-
     // calculate intersection point
     ofPoint interSect;
     ofLineSegmentIntersection(ofPoint(p0.x, p0.y), ofPoint(p2.x, p2.y),
