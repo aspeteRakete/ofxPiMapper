@@ -27,7 +27,8 @@ void ofApp::setup()
         rectSpeeds.push_back((1.0f + ofRandom(5)));
     }
     
-    video.loadMovie("sources/movies/lala01.mp4");
+    string videoPath = ofToDataPath("sources/movies/lala01.mp4", true);
+    video.loadMovie(videoPath);
 #ifndef TARGET_OPENGLES
     video.play();
 #endif
