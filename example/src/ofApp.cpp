@@ -28,7 +28,7 @@ void ofApp::setup()
     }
     
     video.loadMovie("sources/movies/stripe.mp4");
-    video.play();
+    //video.play();
 }
 
 void ofApp::update()
