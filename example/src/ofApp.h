@@ -1,38 +1,30 @@
-#ifndef H_OF_APP
-#define H_OF_APP
+#pragma once
 
 #include "ofMain.h"
 #include "ofxPiMapper.h"
-#ifdef TARGET_OPENGLES
-#include "ofxOMXPlayer.h"
-#endif
+#include "BaseSource.h"
 
 class ofApp : public ofBaseApp {
-public:
-    void setup();
-    void update();
-    void draw();
-    void exit();
+ public:
+  void setup();
+  void update();
+  void draw();
+  void exit();
 
-    void keyPressed(int key);
+  void keyPressed(int key);
 
-    void addRandomSurface();
-    void addQuadSurface();
-    void addSurface();
-    void setFboAsTexture();
+  void addRandomSurface();
+  void addQuadSurface();
+  void addSurface();
+  void setFboAsSource();
 
-    ofImage image;
-    ofxSurfaceManager surfaceManager;
-    ofxSurfaceManagerGui gui;
-    bool bShowInfo;
-    ofFbo* fbo;
-    vector<ofRectangle> rects;
-    vector<float> rectSpeeds;
-#ifdef TARGET_OPENGLES
-    ofxOMXPlayer video;
-#else
-    ofVideoPlayer video;
-#endif
+  ofImage image;
+  ofx::piMapper::MediaServer mediaServer;
+  ofx::piMapper::SurfaceManager surfaceManager;
+  ofx::piMapper::SurfaceManagerGui gui;
+  bool bShowInfo;
+  ofFbo* fbo;
+  ofx::piMapper::BaseSource* fboSource;
+  vector<ofRectangle> rects;
+  vector<float> rectSpeeds;
 };
-
-#endif
